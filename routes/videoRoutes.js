@@ -1,5 +1,7 @@
 import multer from "multer";
 import path from "path";
+import  formidableMiddleware from 'express-formidable'
+
 import { addVideo, getVideoById } from "../controllers/videoController.js";
 // Route handler
 import express from "express";
@@ -16,7 +18,9 @@ const upload = multer({ storage: storage });
 
 
 // Route to handle video creation
-router.post("/add-video", upload.single("video"), addVideo);
+// router.post("/add-video", upload.single("video"), addVideo);
+router.post("/add-video", formidableMiddleware(), addVideo);
+
 router.get("/get-video/:id", getVideoById);
 
 
