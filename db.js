@@ -18,5 +18,4 @@ const connectDB = async () => {
     console.log(`Error in db ${error}`);
   }
 };
-
 export default connectDB;
